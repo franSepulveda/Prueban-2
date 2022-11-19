@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Iniciar Sesion</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="logeado(loginForm.value)">
+        <ion-item>
+          <ion-label position="floating">Usuario</ion-label>
+          <ion-input formControlName="username"></ion-input>
+          <ion-note slot="error"
+            *ngIf="campo('username').invalid  && campo('username').errors && campo('username').errors.required && fueTocado('username') ">
+            Este campo es requerido
+          </ion-note>
+          <ion-note slot="error"
+            *ngIf="campo('username').invalid  && campo('username').errors && campo('username').errors.maxlength && fueTocado('username') ">
+            Los caracteres maximos son 15
+          </ion-note>
+          <ion-note slot="error"
+            *ngIf="campo('username').invalid  && campo('username').errors && campo('username').errors.minlength && fueTocado('username') ">
+            Los caracteres minimos son 1
+          </ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input formControlName="password" type="password"></ion-input>
+          <ion-note slot="error"
+            *ngIf="campo('password').invalid  && campo('password').errors && campo('password').errors.required && fueTocado('password') ">
+            Este campo es requerido
+          </ion-note>
+          <ion-note slot="error"
+            *ngIf="campo('password').invalid  && campo('password').errors && campo('password').errors.maxlength && fueTocado('password') ">
+            Los caracteres maximos son 15
+          </ion-note>
+          <ion-note slot="error"
+            *ngIf="campo('password').invalid  && campo('password').errors && campo('password').errors.minlength && fueTocado('password') ">
+            Los caracteres minimos son 1
+          </ion-note>
+        </ion-item>
+        <br>
+        <ion-button type="submit" color="success" shape="round">Iniciar</ion-button>
+        <ion-button type="submit" color="success" shape="round" [routerLink]="['/registro']" >Registrarse</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

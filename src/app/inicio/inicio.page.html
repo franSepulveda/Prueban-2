@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar color="succes">
+    <ion-title>inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-card *ngFor="let prod ofproductos">
+  <ion-card-header >
+      <h1>{{prod.title}}</h1>
+      <h2>{{prod.description}}</h2>
+    </ion-card-header>
+    <ion-card-content>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>
